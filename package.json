@@ -1,0 +1,29 @@
+{
+  "name": "list_packs",
+  "version": "1.0.0",
+  "description": "\"\"",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gomelGA/JS-Teamwork-List-Processing.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "\"random\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gomelGA/JS-Teamwork-List-Processing/issues"
+  },
+  "homepage": "https://github.com/gomelGA/JS-Teamwork-List-Processing#readme",
+  "dependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
+  }
+}
