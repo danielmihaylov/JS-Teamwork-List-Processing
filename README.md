@@ -3,7 +3,7 @@
 This is our Trello link => https://trello.com/b/v3MYLHOL/listeditorboard
 
 Made and collaborated with the following colleagues from SoftUni:
-- Даниел Михайлов: daniel.a.mihaylov@abv.bg
-- Християн Христов: xapu.ivanov@gmail.com
-- Георги Андонов: gomel9065@gmail.com
-- Александър Лейков: golearnweb@gmail.com
+- Р”Р°РЅРёРµР» РњРёС…Р°Р№Р»РѕРІ: daniel.a.mihaylov@abv.bg
+- РҐСЂРёСЃС‚РёСЏРЅ РҐСЂРёСЃС‚РѕРІ: xapu.ivanov@gmail.com
+- Р“РµРѕСЂРіРё РђРЅРґРѕРЅРѕРІ: gomel9065@gmail.com
+- РђР»РµРєСЃР°РЅРґСЉСЂ Р›РµР№РєРѕРІ: golearnweb@gmail.com
