@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function deleteAt (arr, indexer) {
   let index = Number(indexer)
 
