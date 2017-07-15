@@ -12,7 +12,8 @@
         },
 
         sort: sort,
-        count: count
+        count: count,
+        end: end
     };
 
     function submit() {
@@ -101,6 +102,15 @@
             }
         }
         output.value += count + '\n';
+    }
+
+    function end(args) {
+        if (args.length > 0) {
+            output.value += "Error: invalid command parameters" + "\n";
+            return
+        }
+
+        output.value += 'Finished\n';
     }
 })();
 
