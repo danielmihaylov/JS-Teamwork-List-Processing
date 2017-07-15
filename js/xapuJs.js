@@ -11,7 +11,8 @@
             output.value += theArray.join(" ") + "\n";
         },
 
-        sort: sort
+        sort: sort,
+        count: count
     };
 
     function submit() {
@@ -84,6 +85,22 @@
 
         theArray.sort();
         output.value += theArray.join(" ") + "\n";
+    }
+
+    function count(args) {
+        if (args.length > 1) {
+            output.value += "Error: invalid command parameters" + "\n";
+            return
+        }
+
+        let count = 0;
+        let stringPar = args[0];
+        for (let elem of theArray) {
+            if (elem === stringPar) {
+                count++;
+            }
+        }
+        output.value += count + '\n';
     }
 })();
 
