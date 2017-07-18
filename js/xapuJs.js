@@ -43,10 +43,10 @@
         .slice(theArray.length - 1)
         .concat(theArray.slice(0, theArray.length - 1))
         .slice(0)
-      output.value += theArray + '\n'
+      output.value += theArray.join(' ')+'\n'
     } else if (direction == 'left') {
       theArray = theArray.slice(1).concat(theArray.slice(0, 1)).slice(0)
-      output.value += theArray + '\n'
+      output.value += theArray.join(' ')+'\n'
     }else{
         output.value += 'Error: invalid command parameters' + '\n'
     }
@@ -58,17 +58,22 @@
     validateIndex(theArray, index)
 
     theArray = theArray.slice(0, index).concat(theArray.slice(index + 1)).slice(0)
-    output.value+=theArray+'\n'
+    output.value+=theArray.join(' ')+'\n'
   }
 
   function insertAt (tokens) {
     let index = Number(tokens[0])
     let item = tokens[1]
 
+    console.log(item)
+
+    if(item===undefined){
+      throw new Error('teset err')
+    }
     validateIndex(theArray, index, true)
 
     theArray = theArray.slice(0, index).concat([item]).concat(theArray.slice(index)).slice(0)
-    output.value += theArray+'\n'
+    output.value += theArray.join(' ')+'\n'
   }
 
   function validateIndex (arr, index, isInsert = false) {
