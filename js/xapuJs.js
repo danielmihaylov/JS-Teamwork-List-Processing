@@ -6,12 +6,12 @@
     document.getElementById("submit").addEventListener("click", submit);
     input.addEventListener("keypress", (e) => e.code === "Enter" ? submit() : "");
     let commands = {
-        reverse:reverse,
+        reverse: reverse,
         sort: sort,
         count: count,
         end: end,
-        append:append,
-        prepend:prepend
+        append: append,
+        prepend: prepend
     };
 
     function submit() {
@@ -53,8 +53,8 @@
     }
 
     function insertAt(arr, indexer, item) {
-        let index = Number(indexer)
-        validateIndex(arr, index, true)
+        let index = Number(indexer);
+        validateIndex(arr, index, true);
         arr = arr.slice(0, index).concat([item]).concat(arr.slice(index)).slice(0);
         return arr
     }
@@ -76,6 +76,7 @@
         }
     }
 
+    //Georgi Andonov
     function sort(args) {
         if (args.length !== 0) {
             output.value += "Error: invalid command parameters" + "\n";
@@ -86,8 +87,9 @@
         output.value += theArray.join(" ") + "\n";
     }
 
+    //Georgi Andonov
     function count(args) {
-        if (args.length > 1) {
+        if (args.length === 0 || args.length > 1) {
             output.value += "Error: invalid command parameters" + "\n";
             return
         }
@@ -95,13 +97,14 @@
         let count = 0;
         let stringPar = args[0];
         for (let elem of theArray) {
-            if (elem === stringPar) {
+            if (elem == stringPar) {
                 count++;
             }
         }
         output.value += count + '\n';
     }
 
+    //Georgi Andonov
     function end(args) {
         if (args.length > 0) {
             output.value += "Error: invalid command parameters" + "\n";
@@ -113,25 +116,27 @@
 
     //Daniel Mihaylov
     function append(args) {
-        if(args.length > 1) {
+        if (args.length > 1) {
             output.value += ("Error: invalid command parameters" + '\n');
             return;
         }
         theArray.push(args);
         output.value += theArray.toString() + '\n';
     }
+
     //Daniel Mihaylov
     function prepend(args) {
-        if(args.length > 1){
+        if (args.length > 1) {
             output.value += ("Error: invalid command parameters" + '\n');
             return;
         }
         theArray.unshift(args);
         output.value += theArray.toString() + '\n';
     }
+
     //Daniel Mihaylov
     function reverse(args) {
-        if(args > 0){
+        if (args > 0) {
             output.value += ("Error: invalid command parameters" + '\n');
             return;
         }
@@ -139,5 +144,5 @@
     }
 })();
 
-module.exports = {deleteAt, rollRight, rollLeft, insertAt, validateIndex};
+module.exports = {deleteAt, rollRight, rollLeft, insertAt, validateIndex, sort, count, end};
 
