@@ -116,7 +116,7 @@
 
     //Daniel Mihaylov
     function append(args) {
-        if (args.length > 1) {
+        if (args.length !== 1) {
             output.value += ("Error: invalid command parameters" + '\n');
             return;
         }
@@ -126,7 +126,7 @@
 
     //Daniel Mihaylov
     function prepend(args) {
-        if (args.length > 1) {
+        if (args.length !== 1) {
             output.value += ("Error: invalid command parameters" + '\n');
             return;
         }
