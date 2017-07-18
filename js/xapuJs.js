@@ -6,14 +6,12 @@
     document.getElementById("submit").addEventListener("click", submit);
     input.addEventListener("keypress", (e) => e.code === "Enter" ? submit() : "");
     let commands = {
-        reverse: function () {
-            theArray.reverse();
-            output.value += theArray.join(" ") + "\n";
-        },
-
+        reverse:reverse,
         sort: sort,
         count: count,
-        end: end
+        end: end,
+        append:append,
+        prepend:prepend
     };
 
     function submit() {
@@ -111,6 +109,33 @@
         }
 
         output.value += 'Finished\n';
+    }
+
+    //Daniel Mihaylov
+    function append(args) {
+        if(args.length > 1) {
+            output.value += ("Error: invalid command parameters" + '\n');
+            return;
+        }
+        theArray.push(args);
+        output.value += theArray.toString() + '\n';
+    }
+    //Daniel Mihaylov
+    function prepend(args) {
+        if(args.length > 1){
+            output.value += ("Error: invalid command parameters" + '\n');
+            return;
+        }
+        theArray.unshift(args);
+        output.value += theArray.toString() + '\n';
+    }
+    //Daniel Mihaylov
+    function reverse(args) {
+        if(args > 0){
+            output.value += ("Error: invalid command parameters" + '\n');
+            return;
+        }
+        output.value += theArray.reverse().toString() + '\n';
     }
 })();
 
