@@ -129,30 +129,30 @@
   // Daniel Mihaylov
   function append (args) {
     if (args.length !== 1) {
-      output.value += 'Error: invalid command parameters' + '\n'
+      output.value += 'Error: invalid command parameters' + '\n';
       return
     }
-    theArray.push(args)
-    output.value += theArray.toString() + '\n'
+    theArray.push(args);
+    output.value += theArray.join(' ').toString() + '\n'
   }
 
   // Daniel Mihaylov
   function prepend (args) {
     if (args.length !== 1) {
-      output.value += 'Error: invalid command parameters' + '\n'
+      output.value += 'Error: invalid command parameters' + '\n';
       return
     }
-    theArray.unshift(args)
-    output.value += theArray.toString() + '\n'
+    theArray.unshift(args);
+    output.value += theArray.join(' ').toString() + '\n'
   }
 
   // Daniel Mihaylov
   function reverse (args) {
     if (args > 0) {
-      output.value += 'Error: invalid command parameters' + '\n'
+      output.value += 'Error: invalid command parameters' + '\n';
       return
     }
-    output.value += theArray.reverse().toString() + '\n'
+    output.value += theArray.reverse().join(' ').toString() + '\n'
   }
 
 })()
