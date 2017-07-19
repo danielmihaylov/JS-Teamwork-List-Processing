@@ -55,7 +55,9 @@
   function deleteAt (indexer) {
     let index = Number(indexer[0])
 
-    validateIndex(theArray, index)
+    if(validateIndex(theArray, index)){
+      return
+    }
 
     theArray = theArray.slice(0, index).concat(theArray.slice(index + 1)).slice(0)
     output.value+=theArray.join(' ')+'\n'
@@ -65,12 +67,11 @@
     let index = Number(tokens[0])
     let item = tokens[1]
 
-    console.log(item)
 
-    if(item===undefined){
-      throw new Error('teset err')
+    if(validateIndex(theArray, index, true)){
+      return
     }
-    validateIndex(theArray, index, true)
+
 
     theArray = theArray.slice(0, index).concat([item]).concat(theArray.slice(index)).slice(0)
     output.value += theArray.join(' ')+'\n'
@@ -78,19 +79,21 @@
 
   function validateIndex (arr, index, isInsert = false) {
     if (isNaN(index)) {
-      throw new Error(`Error: invalid type.`)
-    }
+      output.value += `Error: invalid type.\n`
+       }
     if (index < 0) {
-      throw new Error(`Error: invalid index ${index}.`)
+      output.value +=`Error: invalid index ${index}.\n`
+  
     }
 
     if (isInsert) {
       if (index > arr.length) {
-        throw new Error(`Error: invalid index ${index}.`)
+        output.value +=`Error: invalid index ${index}.\n`
       }
     } else if (index >= arr.length) {
-      throw new Error(`Error: invalid index ${index}.`)
+      output.value +=(`Error: invalid index ${index}.\n`)
     }
+    return true
   }
 
   // Georgi Andonov
