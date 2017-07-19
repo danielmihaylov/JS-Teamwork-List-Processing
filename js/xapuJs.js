@@ -74,6 +74,11 @@
       return
     }
 
+    if(item==undefined){
+      output.value += 'Error: invalid input\n'
+      return 
+    }
+
     theArray = theArray
       .slice(0, index)
       .concat([item])
@@ -84,22 +89,24 @@
 
   function validateIndex (arr, index, isInsert = false) {
     let checker = false
+
     if (isNaN(index)) {
-      output.value += `Error: invalid type.\n`
+      output.value += `Error: invalid type\n`
       checker = true
     }
+
     if (index < 0) {
-      output.value += `Error: invalid index ${index}.\n`
+      output.value += `Error: invalid index ${index}\n`
       checker = true
     }
 
     if (isInsert) {
       if (index > arr.length) {
-        output.value += `Error: invalid index ${index}.\n`
+        output.value += `Error: invalid index ${index}\n`
         checker = true
       }
     } else if (index >= arr.length) {
-      output.value += `Error: invalid index ${index}.\n`
+      output.value += `Error: invalid index ${index}\n`
       checker = true
     }
     return checker
