@@ -13,8 +13,8 @@
     append: append,
     prepend: prepend,
     roll: roll,
-    delete:deleteAt,
-    insert:insertAt
+    delete: deleteAt,
+    insert: insertAt
   }
 
   function submit () {
@@ -37,44 +37,49 @@
   }
 
   function roll (direction) {
-      console.log(arguments.length)
+    console.log(arguments.length)
     if (direction == 'right') {
       theArray = theArray
         .slice(theArray.length - 1)
         .concat(theArray.slice(0, theArray.length - 1))
         .slice(0)
-      output.value += theArray.join(' ')+'\n'
+      output.value += theArray.join(' ') + '\n'
     } else if (direction == 'left') {
       theArray = theArray.slice(1).concat(theArray.slice(0, 1)).slice(0)
-      output.value += theArray.join(' ')+'\n'
-    }else{
-        output.value += 'Error: invalid command parameters' + '\n'
+      output.value += theArray.join(' ') + '\n'
+    } else {
+      output.value += 'Error: invalid command parameters' + '\n'
     }
   }
 
   function deleteAt (indexer) {
     let index = Number(indexer[0])
 
-    if(validateIndex(theArray, index)){
+    if (validateIndex(theArray, index)) {
       return
     }
 
-    theArray = theArray.slice(0, index).concat(theArray.slice(index + 1)).slice(0)
-    output.value+=theArray.join(' ')+'\n'
+    theArray = theArray
+      .slice(0, index)
+      .concat(theArray.slice(index + 1))
+      .slice(0)
+    output.value += theArray.join(' ') + '\n'
   }
 
   function insertAt (tokens) {
     let index = Number(tokens[0])
     let item = tokens[1]
 
-
-    if(validateIndex(theArray, index, true)){
+    if (validateIndex(theArray, index, true)) {
       return
     }
 
-
-    theArray = theArray.slice(0, index).concat([item]).concat(theArray.slice(index)).slice(0)
-    output.value += theArray.join(' ')+'\n'
+    theArray = theArray
+      .slice(0, index)
+      .concat([item])
+      .concat(theArray.slice(index))
+      .slice(0)
+    output.value += theArray.join(' ') + '\n'
   }
 
   function validateIndex (arr, index, isInsert = false) {
@@ -82,19 +87,19 @@
     if (isNaN(index)) {
       output.value += `Error: invalid type.\n`
       checker = true
-       }
+    }
     if (index < 0) {
-      output.value +=`Error: invalid index ${index}.\n`
-  
+      output.value += `Error: invalid index ${index}.\n`
+      checker = true
     }
 
     if (isInsert) {
       if (index > arr.length) {
-        output.value +=`Error: invalid index ${index}.\n`
+        output.value += `Error: invalid index ${index}.\n`
         checker = true
       }
     } else if (index >= arr.length) {
-      output.value +=(`Error: invalid index ${index}.\n`)
+      output.value += `Error: invalid index ${index}.\n`
       checker = true
     }
     return checker
@@ -141,32 +146,29 @@
   // Daniel Mihaylov
   function append (args) {
     if (args.length !== 1) {
-      output.value += 'Error: invalid command parameters' + '\n';
+      output.value += 'Error: invalid command parameters' + '\n'
       return
     }
-    theArray.push(args);
+    theArray.push(args)
     output.value += theArray.join(' ').toString() + '\n'
   }
 
   // Daniel Mihaylov
   function prepend (args) {
     if (args.length !== 1) {
-      output.value += 'Error: invalid command parameters' + '\n';
+      output.value += 'Error: invalid command parameters' + '\n'
       return
     }
-    theArray.unshift(args);
+    theArray.unshift(args)
     output.value += theArray.join(' ').toString() + '\n'
   }
 
   // Daniel Mihaylov
   function reverse (args) {
     if (args > 0) {
-      output.value += 'Error: invalid command parameters' + '\n';
+      output.value += 'Error: invalid command parameters' + '\n'
       return
     }
     output.value += theArray.reverse().join(' ').toString() + '\n'
   }
-
 })()
-
-
